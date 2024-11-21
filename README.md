@@ -54,6 +54,7 @@ Install dependencies
 ```
 
 Start the server
+You can use PORT:3000
 
 ```bash
   npm run app.js
@@ -62,23 +63,28 @@ Start the server
 
 ## Screenshots
 
-Landing Page:
+**Landing Page:**
+
 ![landing](https://github.com/user-attachments/assets/f6ae89e9-657c-4dd3-bcba-074fe03a6411)
 
-RBA Authentication:
+**RBA Authentication:**
+
 ![signup](https://github.com/user-attachments/assets/1a3949e5-d04d-4b89-9609-85923f7bbb3f)
 
-Login:
+**Login:**
+
 ![login](https://github.com/user-attachments/assets/2b2a0f29-d0ee-4f0d-b680-96c9125c0367)
 
+**Student Dashboard:** 
 
-Student Dashboard: 
 ![dash](https://github.com/user-attachments/assets/b611b128-9086-4897-a374-0a623680baf2)
 
-Teacher Dashboard:
+**Teacher Dashboard:**
+
 ![teacherdashboard](https://github.com/user-attachments/assets/a99b7d29-90f1-4f33-a9ea-eacd8fa95860)
 
-Teacher Dashboard/Students: All These 4 Functions Works.
+**Teacher Dashboard/Students:** All These 4 Functions Works.
+
 ![students](https://github.com/user-attachments/assets/f222599e-96d3-4f88-8ff1-49bc7b1154df)
 
 
