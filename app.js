@@ -18,8 +18,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-const PORT = process.env.PORT || 3000; // Use 3000 as a fallback
-const MONGODB_URI = process.env.MONGODB_URI;
 
 app.get('/', (req, res) => {
     res.render('landing');
@@ -64,7 +62,7 @@ app.post('/create', async (req, res) => {
                 role // Save the role in the database
             });
 
-            let token = jwt.sign({ email: email, userid: createdUser._id, role }, 'hello');
+            let token = jwt.sign({ email: email, userid: createdUser._id, role }, 'your-secret-key');
             res.cookie('token', token);
             res.send(createdUser);
         });
@@ -100,7 +98,7 @@ app.post('/login', async (req, res) => {
 
     bcrypt.compare(req.body.password, user.password, (err, result) => {
         if (result) {
-            let token = jwt.sign({ _id: user._id, email: user.email, role: user.role }, 'hello');
+            let token = jwt.sign({ _id: user._id, email: user.email, role: user.role }, 'your-secret-key');
             res.cookie('token', token);
             res.redirect("/dashboard");
         } else {
@@ -119,7 +117,7 @@ function isLoggedIn(req, res, next) {
     if (req.cookies.token == "") res.redirect("/login");
     else {
         try {
-            let data = jwt.verify(req.cookies.token, "hello");
+            let data = jwt.verify(req.cookies.token, "your-secret-key");
             req.user = data; // Attach user data (including role) to the request
             console.log("User data from token:", req.user);
             next();
@@ -318,4 +316,4 @@ app.get('/teacher-dashboard/students/view-marks/:email',isLoggedIn, authorizeRol
     res.render('viewmarks', {marks});
 })
 
-app.listen(3000);
+app.listen(your-port);
