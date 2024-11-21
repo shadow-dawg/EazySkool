@@ -30,6 +30,15 @@ information on a dynamic dashboard.
 
 **Authentication:** Uses bcrypt, jsonwebtoken and cookie-parser library to have secured password and Session.
 
+## Features (Teacher Dashboard)
+
+- **Create :** Form to Add Student and Add Marks
+- **Read :** View Student Details and View Marks. if the student have added marks by teacher, else Add Marks
+- **Update :** Update Student Deatils
+- **Delete :** Delete Student Details
+
+## Features (Student Dashboard)
+- **View**: The Details of Each student will render on their Dashboard (personalized User Experience).
 
 
 ## Run Locally
