@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/miniproject');
+mongoose.connect('your-mongodbcompass-connection');
 
 const userSchema = mongoose.Schema({
     username: String,
