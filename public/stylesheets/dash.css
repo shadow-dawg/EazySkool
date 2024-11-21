@@ -1,0 +1,72 @@
+/* General Styling */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+/* Container for the Dashboard */
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+/* Student Information Section */
+.student-info {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.student-info h1 {
+  font-size: 2.5rem;
+  color: #ffcc00; /* Yellow color for the title */
+  margin-bottom: 20px;
+}
+
+.student-info p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin: 5px 0;
+}
+
+/* Profile Picture Section */
+.profile-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #ffcc00; /* Yellow border for the profile picture */
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+.profile-container button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #ffcc00;
+  color: #121212;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profile-container button:hover {
+  background-color: #f1f1f1;
+  color: #121212;
+}

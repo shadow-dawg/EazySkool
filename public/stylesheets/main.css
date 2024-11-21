@@ -1,0 +1,99 @@
+/* Resetting some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1A1A19;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 0;
+}
+
+/* Container styles */
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+}
+
+/* Header Section */
+.header h1 {
+    font-size: 3rem;
+    color: #FF8C00;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.header .description {
+    font-size: 1.2rem;
+    color: #bbb;
+    margin-top: 10px;
+    animation: fadeIn 2.5s ease-in-out;
+}
+
+/* Button Styles */
+.buttons {
+    margin-top: 40px;
+}
+
+.btn {
+    padding: 12px 30px;
+    margin: 10px;
+    background-color: #FF8C00;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: transform 0.3s, background-color 0.3s;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #FF6600;
+    transform: scale(1.1);
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer Section */
+footer {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Background Image */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/stars.jpg);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    z-index: -1;
+}

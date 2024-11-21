@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students - EazySkool</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/student.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- FontAwesome Icons -->
+</head>
+<body class="bg-gray-900 text-gray-100">
+
+    <!-- Project Name Section -->
+    <div class="bg-gray-800 py-4 shadow-md mb-8">
+        <div class="container mx-auto flex items-center justify-start space-x-4">
+            <i class="fas fa-school text-indigo-500 text-4xl"></i>
+            <span class="text-white text-3xl font-semibold">EazySkool</span>
+        </div>
+    </div>
+
+    <div class="container mx-auto p-8">
+        <!-- Title -->
+        <h1 class="text-4xl font-extrabold text-center mb-8 text-indigo-500">All Students</h1>
+
+        <!-- Buttons -->
+        <div class="flex justify-between mb-6 space-x-4">
+            <!-- Go Back Button -->
+            <a href="/teacher-dashboard" class="bg-gray-700 hover:bg-gray-800 text-white px-8 py-3 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                <i class="fas fa-arrow-left mr-2"></i> Go Back
+            </a>
+
+            <!-- Create Student Button -->
+            <a href="/teacher-dashboard/students/add" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                <i class="fas fa-plus-circle mr-2"></i> Create Student
+            </a>
+        </div>
+
+        <!-- Student Table -->
+        <div class="overflow-x-auto bg-gray-800 rounded-lg shadow-lg">
+            <table class="min-w-full bg-gray-700 border-collapse">
+                <thead class="bg-gray-600">
+                    <tr>
+                        <th class="px-6 py-4 text-lg font-semibold text-gray-200 text-left">Name</th>
+                        <th class="px-6 py-4 text-lg font-semibold text-gray-200 text-left">Class</th>
+                        <th class="px-6 py-4 text-lg font-semibold text-gray-200 text-left">DOB</th>
+                        <th class="px-6 py-4 text-lg font-semibold text-gray-200 text-left">Email</th>
+                        <th class="px-6 py-4 text-lg font-semibold text-gray-200 text-left">Phone</th>
+                        <th class="px-6 py-4 text-lg font-semibold text-gray-200 text-left">Address</th>
+                        <th class="px-6 py-4 text-lg font-semibold text-gray-200 text-left">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% student.forEach(student => { %>
+                        <tr class="border-b border-gray-600 hover:bg-gray-600 transition duration-300 ease-in-out">
+                            <td class="px-6 py-4"><%= student.name %></td>
+                            <td class="px-6 py-4"><%= student.Class %></td>
+                            <td class="px-6 py-4"><%= student.dob.toLocaleDateString() %></td>
+                            <td class="px-6 py-4"><%= student.email %></td>
+                            <td class="px-6 py-4"><%= student.phone %></td>
+                            <td class="px-6 py-4"><%= student.address %></td>
+                            <td class="px-6 py-4 flex space-x-4">
+                                <!-- Action Buttons -->
+                                <a href="/teacher-dashboard/students/edit/<%= student._id %>" class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                                    Update
+                                </a>
+
+                                <% if (student.hasMarks) { %>
+                                    <!-- View Marks Button -->
+                                    <a href="/teacher-dashboard/students/view-marks/<%= student.email %>" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                                        View Marks
+                                    </a>
+                                <% } else { %>
+                                    <!-- Add Marks Button -->
+                                    <a href="/teacher-dashboard/students/subjects/<%= student._id %>" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                                        Add Marks
+                                    </a>
+                                <% } %>
+
+                                <a href="/teacher-dashboard/students/delete/<%= student._id %>" class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

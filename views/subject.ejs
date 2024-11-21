@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marks Entry Form</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-200 font-sans">
+
+  <!-- Full Screen Form Container -->
+  <div class="min-h-screen flex items-center justify-center">
+
+    <!-- Form Box -->
+    <div class="bg-gray-800 p-8 rounded-lg shadow-2xl w-full max-w-lg">
+
+      <!-- Form Title -->
+      <h2 class="text-3xl font-semibold text-gray-300 mb-6 text-center">Enter Your Marks</h2>
+
+      <form action="/teacher-dashboard/students/subjects/<%= student._id %>" method="POST" class="space-y-6">        <!-- Email Input -->
+        <div>
+            <label for="email" class="block text-lg font-medium text-gray-400">Email Address</label>
+            <input type="email" id="email" name="email" value="<%= student.email %>" required class="w-full p-3 mt-2 bg-gray-700 text-gray-200 rounded-md" placeholder="Enter the student's email" readonly>
+        </div>
+    
+        <!-- Science Marks -->
+        <div>
+            <label for="science" class="block text-lg font-medium text-gray-400">Science Marks</label>
+            <input type="number" id="science" name="science" required class="w-full p-3 mt-2 bg-gray-700 text-gray-200 rounded-md" placeholder="Enter Science marks" oninput="calculateTotal()">
+        </div>
+    
+        <!-- Maths Marks -->
+        <div>
+            <label for="maths" class="block text-lg font-medium text-gray-400">Maths Marks</label>
+            <input type="number" id="maths" name="maths" required class="w-full p-3 mt-2 bg-gray-700 text-gray-200 rounded-md" placeholder="Enter Maths marks" oninput="calculateTotal()">
+        </div>
+    
+        <!-- Social Science Marks -->
+        <div>
+            <label for="socialscience" class="block text-lg font-medium text-gray-400">Social Science Marks</label>
+            <input type="number" id="socialscience" name="socialscience" required class="w-full p-3 mt-2 bg-gray-700 text-gray-200 rounded-md" placeholder="Enter Social Science marks" oninput="calculateTotal()">
+        </div>
+    
+        <!-- English Marks -->
+        <div>
+            <label for="english" class="block text-lg font-medium text-gray-400">English Marks</label>
+            <input type="number" id="english" name="english" required class="w-full p-3 mt-2 bg-gray-700 text-gray-200 rounded-md" placeholder="Enter English marks" oninput="calculateTotal()">
+        </div>
+    
+        <!-- Total Marks -->
+        <div>
+            <label for="TotalMarks" class="block text-lg font-medium text-gray-400">Total Marks</label>
+            <input type="number" id="TotalMarks" name="TotalMarks" required class="w-full p-3 mt-2 bg-gray-700 text-gray-200 rounded-md" placeholder="Total Marks" readonly>
+        </div>
+    
+        <button type="submit" class="w-full p-3 mt-4 bg-blue-600 text-white rounded-md">Submit Marks</button>
+    </form>
+    
+    <script>
+        // Function to calculate the total marks
+        function calculateTotal() {
+            let science = parseInt(document.getElementById('science').value) || 0;
+            let maths = parseInt(document.getElementById('maths').value) || 0;
+            let socialscience = parseInt(document.getElementById('socialscience').value) || 0;
+            let english = parseInt(document.getElementById('english').value) || 0;
+    
+            let totalMarks = science + maths + socialscience + english;
+    
+            // Update the total marks field
+            document.getElementById('TotalMarks').value = totalMarks;
+    
+            // Also pass this value in the hidden input to submit to the backend
+            document.getElementById('hiddenTotalMarks').value = totalMarks;
+        }
+    </script>   
+    </div>
+  </div>
+
+</body>
+</html>

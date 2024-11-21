@@ -1,0 +1,5 @@
+# Ignore environment variables
+.env
+
+# Ignore Node.js dependencies (in case of a fresh repo)
+node_modules/
