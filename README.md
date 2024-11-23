@@ -59,7 +59,7 @@ Go to the project directory
 Install dependencies
 
 ```bash
-  npm install ejs cookie-parser bcrypt jwt express 
+  npm install ejs cookie-parser bcrypt jwt express mongoose
 ```
 
 Start the server
