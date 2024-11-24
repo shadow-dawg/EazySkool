@@ -1,7 +1,7 @@
 
 # EazySkool
 
-EazySkool is a Student Dashboard Management System is a web- based 
+EazySkool: Student Dashboard Management System is a web- based 
 application designed to streamline the management of student 
 data and academic records. The system provides role-based 
 access, allowing teachers (admins) to perform CRUD (Create, 
